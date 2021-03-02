@@ -20,6 +20,45 @@ const deleteComment = (commentId) =>{
     commetList()
 }
 
+const editForm  = (commentId) =>{
+    const commnetValue = comments[commentId]
+    const editForm =  document.createElement("form");
+    editForm.className = 'edit-form'
+
+    const titleEdit =  document.createElement("input");
+    titleEdit.className = 'margin-buttom'
+    titleEdit.value = commnetValue.title
+
+    const descriptionEdit =  document.createElement("textarea");
+    descriptionEdit.className = 'margin-buttom'
+    descriptionEdit.value = commnetValue.description
+
+
+    const saveButton =  document.createElement("button");
+    saveButton.innerText = 'Save'
+
+    editForm.appendChild(titleEdit)
+    editForm.appendChild(descriptionEdit)
+    editForm.appendChild(saveButton)
+
+    editForm.addEventListener('submit',(event)=>{
+    event.preventDefault()
+    comments[commentId].title = titleEdit.value
+    comments[commentId].title = descriptionEdit.value
+    commetList()
+})
+    return editForm
+}
+
+const editComment = (commentId) =>{
+    const selectedComment = document.getElementById(`list-item-${commentId}`)
+    const slectedForm = editForm(commentId)
+    selectedComment.innerHTML = ''
+    selectedComment.appendChild(slectedForm)
+}
+
+
+
 const createNewComment = (commentTitle,description,index) =>{
     const imageDiv = document.createElement("div");
     const image =  document.createElement("img");
@@ -54,14 +93,14 @@ const createNewComment = (commentTitle,description,index) =>{
     buttonDiv.appendChild(deleteButton);
 
     const listItem = document.createElement("li");
-    listItem.className = 'list-item'
-    listItem.id = index
+    listItem.className = 'list-item form-control'
+    listItem.id = `list-item-${index}`
 
     editButton.innerText = "Edit";
     editButton.className = "edit";
     editButton.id = index
     editButton.addEventListener('click',(event)=>{
-        console.log(editButton.id)
+        editComment(editButton.id)
     })
 
 
