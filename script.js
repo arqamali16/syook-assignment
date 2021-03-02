@@ -1,3 +1,5 @@
+comments = [{title:'Hello',description:'How are you?'}]
+
 const form = document.getElementById('form')
 const title = document.getElementById('title')
 const email = document.getElementById('email')
@@ -12,7 +14,7 @@ const showError = (element,message) =>{
     small.innerText = message
 }
 
-const createNewComment = (commentTitle,description) =>{
+const createNewComment = (commentTitle,description,index) =>{
     const imageDiv = document.createElement("div");
     const image =  document.createElement("img");
     image.className = 'avatar'
@@ -47,6 +49,7 @@ const createNewComment = (commentTitle,description) =>{
 
     const listItem = document.createElement("li");
     listItem.className = 'list-item'
+    listItem.id = index
 
     editButton.innerText = "Edit";
     editButton.className = "edit";
@@ -68,16 +71,20 @@ form.addEventListener('submit',(event)=>{
     if(title.value===''){
         showError(title,'Title is required')
     }else{
-        commetList(title.value,description.value)
+        comments.push({title:title.value,description:description.value})
+        commetList()
         title.value = ''
         description.value = ''
     }
 })
 
 
-const commetList = (title,description) =>{
-    const listItem = createNewComment(title,description)
-    list.appendChild(listItem)
+const commetList = () =>{
+    list.innerHTML = ''
+    comments.forEach((element,index) => {
+        const listItem = createNewComment(element.title,element.description,index)
+        list.appendChild(listItem)
+    });
 }
 
-///// shbhvbkfbkvfd
+commetList()
