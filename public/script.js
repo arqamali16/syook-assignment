@@ -23,6 +23,11 @@ const showError = (element,message) =>{
     small.innerText = message
 }
 
+const hideError = (element) =>{
+    const formControl = element.parentElement;
+    formControl.className = 'form-control'
+}
+
 const deleteComment = (commentId) =>{
     const filtered = comments.filter((value, index)=> index !== parseInt(commentId, 10));
     comments = filtered
@@ -136,6 +141,7 @@ form.addEventListener('submit',(event)=>{
     if(title.value===''){
         showError(title,'Title is required')
     }else{
+        hideError(title)
         comments.push({title:title.value,description:description.value})
         displayComments()
         title.value = ''
