@@ -54,7 +54,7 @@ const editForm  = (commentId) =>{
     editForm.addEventListener('submit',(event)=>{
         event.preventDefault()
         comments[commentId].title = titleEdit.value
-        comments[commentId].title = descriptionEdit.value
+        comments[commentId].description = descriptionEdit.value
         displayComments()
     })
     return editForm
