@@ -36,6 +36,7 @@ const editForm  = (commentId) =>{
 
     const saveButton =  document.createElement("button");
     saveButton.innerText = 'Save'
+    saveButton.className = 'save-button'
 
     editForm.appendChild(titleEdit)
     editForm.appendChild(descriptionEdit)

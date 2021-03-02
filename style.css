@@ -28,7 +28,7 @@ body {
 }
 
 .commnet-list-container{
-    width: 800px;
+    width: 600px;
     padding: 0px 20px;
 }
 
@@ -189,4 +189,15 @@ p{
     margin-bottom: 15px !important;
     padding: 8px i !important;
     border: 1px solid #13c2c2 !important;
+}
+
+.save-button{
+    cursor: pointer;
+    background-color: #69c0ff;
+    border: 2px solid #69c0ff;
+    color: #fff;
+    border-radius: 20px;
+    display: block;
+    font-size: 12px;
+    padding: 5px;
 }
