@@ -1,4 +1,3 @@
-# syook-assignment
-Assignment
+# Syook Assignment
 
 Live Hosting (Firebase) :  https://syook-assignment.firebaseapp.com/
