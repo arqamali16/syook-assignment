@@ -1,4 +1,4 @@
-comments = [{title:'Hello',description:'How are you?'}]
+let comments = [{title:'Hello',description:'How are you?'}]
 
 const form = document.getElementById('form')
 const title = document.getElementById('title')
@@ -12,6 +12,12 @@ const showError = (element,message) =>{
     formControl.className = 'form-control error'
     const small  = formControl.querySelector('small')
     small.innerText = message
+}
+
+const deleteComment = (commentId) =>{
+    const filtered = comments.filter((value, index)=> index !== parseInt(commentId, 10));
+    comments = filtered
+    commetList()
 }
 
 const createNewComment = (commentTitle,description,index) =>{
@@ -53,8 +59,18 @@ const createNewComment = (commentTitle,description,index) =>{
 
     editButton.innerText = "Edit";
     editButton.className = "edit";
+    editButton.id = index
+    editButton.addEventListener('click',(event)=>{
+        console.log(editButton.id)
+    })
+
+
     deleteButton.innerText = "Delete";
     deleteButton.className = "delete";
+    deleteButton.id = index
+    deleteButton.addEventListener('click',(event)=>{
+        deleteComment(deleteButton.id)
+    })
 
 
 
