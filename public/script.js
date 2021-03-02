@@ -1,10 +1,19 @@
 let comments = [{title:'Hello',description:'How are you?'}]
+const originalComments = []
 
 const form = document.getElementById('form')
-const title = document.getElementById('title')
-const email = document.getElementById('email')
-const password = document.getElementById('password')
+const search = document.getElementById('search')
 const list = document.getElementById('comment-list')
+
+search.addEventListener('input',(event)=>{
+    // Shallow copy
+    Object.assign(originalComments, comments)
+    const searchString = search.value
+
+    const filteredComments = originalComments.filter((value)=>  value.title.toLowerCase().includes(searchString.toLowerCase()));
+    comments = filteredComments
+    displayComments()
+})
 
 
 const showError = (element,message) =>{
