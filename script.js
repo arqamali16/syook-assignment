@@ -17,7 +17,7 @@ const showError = (element,message) =>{
 const deleteComment = (commentId) =>{
     const filtered = comments.filter((value, index)=> index !== parseInt(commentId, 10));
     comments = filtered
-    commetList()
+    displayComments()
 }
 
 const editForm  = (commentId) =>{
@@ -42,11 +42,11 @@ const editForm  = (commentId) =>{
     editForm.appendChild(saveButton)
 
     editForm.addEventListener('submit',(event)=>{
-    event.preventDefault()
-    comments[commentId].title = titleEdit.value
-    comments[commentId].title = descriptionEdit.value
-    commetList()
-})
+        event.preventDefault()
+        comments[commentId].title = titleEdit.value
+        comments[commentId].title = descriptionEdit.value
+        displayComments()
+    })
     return editForm
 }
 
@@ -127,14 +127,14 @@ form.addEventListener('submit',(event)=>{
         showError(title,'Title is required')
     }else{
         comments.push({title:title.value,description:description.value})
-        commetList()
+        displayComments()
         title.value = ''
         description.value = ''
     }
 })
 
 
-const commetList = () =>{
+const displayComments = () =>{
     list.innerHTML = ''
     comments.forEach((element,index) => {
         const listItem = createNewComment(element.title,element.description,index)
@@ -142,4 +142,4 @@ const commetList = () =>{
     });
 }
 
-commetList()
+displayComments()
