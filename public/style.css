@@ -31,6 +31,7 @@ body {
     min-width: 600px;
     padding: 0px 20px;
     max-height: 90vh;
+    min-height: 50vh;
     overflow: scroll;
 }
 
