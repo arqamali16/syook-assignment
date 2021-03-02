@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+    --success-color:#2ecc71;
+    --error-color:#e74c3c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    min-height: 100vh;
+    background-color: #f9fafb;
+}
+
+.container {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgb(0,0,0,0.3);
+    width: 400px;
+}
+
+h2{
+    text-align: center;
+    margin: 0 0 20px;
+}
+
+.form {
+    padding: 30px 40px;
+}
+
+.form-control {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form-control label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.form-control input  {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+}
+.form-control textarea {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+    margin: 0px;
+    min-height: 200px;
+}
+
+.form-control input:focus {
+    outline: 0;
+    border-color: #777;
+}
+
+.form-control.success input {
+    border-color: var(--success-color);
+}
+
+.form-control.error input {
+    border-color: var(--error-color);
+}
+
+.form-control small {
+    color: var(--error-color);
+    position: absolute;
+    bottom:0;
+    left:0;
+    visibility: hidden;
+}
+
+.form-control.error small {
+    visibility: visible;
+}
+
+.form button{
+    cursor: pointer;
+    background-color: #3498db;
+    border:2px solid #3498db;
+    color: #fff;
+    border-radius: 4px;
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+}
+
+.list{
+    list-style-type: none;
+    padding: 10px;
+}
+
+.list-item {
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.list-item-meta{
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.list-item-avatar-meta{
+    margin-right:10px ;
+    width: 10%;
+}
+
+.list-item-avatar{
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+}
+
+.text-content {
+    width: 90%;
+}
+
+h4 {
+    width: inherit;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+    margin-right: 0px;
+    word-break: break-all;
+}
+
+p{
+    word-break: break-all;
+}
+
+.delete {
+    margin-left: 10px;
+}
+
+.list-item-button {
+    display: flex;
+    justify-content: flex-end;
+}
